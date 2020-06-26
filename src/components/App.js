@@ -6,6 +6,7 @@ import './styles/App.css';
 import Layout from './Layout';
 import Home from '../pages/Home';
 import Badges from '../pages/Badges';
+import BadgeNew from '../pages/BadgeNew';
 
 function App() {
 	return (
@@ -14,8 +15,8 @@ function App() {
 				<Switch>
 					<Route exact path="/" component={Home} />
 					<Route exact path="/badges" component={Badges} />
-					{/* <Route exact path="/badges/new" component={BadgeNew} />
-					<Route component={NotFound} /> */}
+					<Route exact path="/badges/new" component={BadgeNew} />
+					{/* <Route component={NotFound} /> */}
 				</Switch>
 			</Layout>
 		</BrowserRouter>
