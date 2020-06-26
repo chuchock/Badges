@@ -57,6 +57,14 @@ class Badges extends React.Component {
 		}, 3000);
 	}
 
+	componentDidUpdate(prevProps, prevState) {
+
+	}
+
+	componentWillUnmount() {
+		clearTimeout(this.timeoutId)
+	}
+
 	render() {
 		return (
 			<React.Fragment>
