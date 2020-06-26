@@ -19,9 +19,9 @@ export default class Home extends Component {
 							/>
 
 							<h1>Badge Management System</h1>
-							{/* <Link className="btn btn-primary" to="/badges">
+							<Link className="btn btn-primary" to="/badges">
 								Start
-                            </Link> */}
+                            </Link>
 						</div>
 
 						<div className="Home__col d-none d-md-block col-md-8">
