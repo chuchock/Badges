@@ -1,16 +1,23 @@
 import React from 'react';
+import { BrowserRouter, Switch, Route } from 'react-router-dom';
 
 import './styles/App.css';
 
-import Navbar from './Navbar';
+import Layout from './Layout';
 import Home from '../pages/Home';
-import { BrowserRouter } from 'react-router-dom';
+import Badges from '../pages/Badges';
 
 function App() {
 	return (
 		<BrowserRouter>
-			<Navbar />
-			<Home />
+			<Layout>
+				<Switch>
+					<Route exact path="/" component={Home} />
+					<Route exact path="/badges" component={Badges} />
+					{/* <Route exact path="/badges/new" component={BadgeNew} />
+					<Route component={NotFound} /> */}
+				</Switch>
+			</Layout>
 		</BrowserRouter>
 	);
 }
