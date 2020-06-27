@@ -2,13 +2,13 @@ import React from 'react';
 
 class BadgeForm extends React.Component {
 
-	handleSubmit = (e) => {
-		/* evitar que formulario haga submit al hacer click en botón,
-		tambien puese hacerse cambiando el type del button*/
-		e.preventDefault();
+	// handleSubmit = (e) => {
+	// 	/* evitar que formulario haga submit al hacer click en botón,
+	// 	tambien puese hacerse cambiando el type del button*/
+	// 	e.preventDefault();
 
-		console.log(this.state);
-	}
+	// 	console.log(this.state);
+	// }
 
 
 	render() {
@@ -16,7 +16,7 @@ class BadgeForm extends React.Component {
 			<div>
 				<h1>New Attendant</h1>
 
-				<form onSubmit={this.handleSubmit}>
+				<form onSubmit={this.props.onSubmit}>
 
 					<div className="form-group">
 						<label htmlFor="">First Name</label>
