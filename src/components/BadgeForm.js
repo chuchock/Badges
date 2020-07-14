@@ -2,6 +2,10 @@ import React from 'react';
 
 class BadgeForm extends React.Component {
 
+	handleClick = e => {
+		console.log('Button was clicked');
+	};
+
 	// handleSubmit = (e) => {
 	// 	/* evitar que formulario haga submit al hacer click en botón,
 	// 	tambien puese hacerse cambiando el type del button*/
@@ -48,7 +52,10 @@ class BadgeForm extends React.Component {
 						<input onChange={this.props.onChange} className="form-control" type="text" name="twitter" value={this.props.formValues.twitter} />
 					</div>
 
-					<button type="button" onClick={this.handleSubmit} className="btn btn-primary">Save</button>
+					<button onClick={this.handleClick} className="btn btn-primary">Save</button>
+
+					{this.props.error && (<p className="text-danger">{this.props.error.message}</p>)}
+
 				</form>
 			</div>
 		);
