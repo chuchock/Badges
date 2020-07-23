@@ -17,8 +17,10 @@ function BadgeDetails(props) {
 						<div className="col-6">
 							<img src={confLogo} alt="Logo de la Conferencia" />
 						</div>
-						<div className="col-6 BadgeDetails__hero-attendant">
-							<h1>{badge.firstName} {badge.lastName}</h1>
+						<div className="col-6 BadgeDetails__hero-attendant-name">
+							<h1>
+								{badge.firstName} {badge.lastName}
+							</h1>
 						</div>
 					</div>
 				</div>
@@ -42,16 +44,18 @@ function BadgeDetails(props) {
 								<Link
 									className="btn btn-primary mb-4"
 									to={`/badges/${badge.id}/edit`}
-								>Edit</Link>
+								>
+									Edit</Link>
 							</div>
 
 							<div>
-								<button onClick={props.onOpenModal} className="btn btn-danger">Delete</button>
-								<DeleteBadgeModal 
-									isOpen={props.modalIsOpen} 
-									onClose={props.onCloseModal} 
+								<button onClick={props.onOpenModal} className="btn btn-danger">
+									Delete</button>
+								<DeleteBadgeModal
+									isOpen={props.modalIsOpen}
+									onClose={props.onCloseModal}
 									onDeleteBadge={props.onDeleteBadge}
-									/>
+								/>
 							</div>
 						</div>
 					</div>

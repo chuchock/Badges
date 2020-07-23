@@ -5,26 +5,16 @@ import './styles/Badges.css';
 import confLogo from '../images/badge-header.svg';
 import BadgesList from '../components/BadgesList';
 import PageLoading from '../components/PageLoading';
-import MiniLoader from '../components/MiniLoader';
 import PageError from '../components/PageError';
-
+import MiniLoader from '../components/MiniLoader';
 import api from '../api';
 
 class Badges extends React.Component {
-
 	state = {
 		loading: true,
 		error: null,
 		data: undefined,
 	};
-
-	// constructor(props) {
-	// 	super(props);
-
-	// 	this.state = {
-	// 		data: [],
-	// 	};
-	// }
 
 	componentDidMount() {
 		this.fetchData();
@@ -32,39 +22,28 @@ class Badges extends React.Component {
 		this.intervalId = setInterval(this.fetchData, 5000);
 	}
 
-	componentWillMount() {
-		// Cancel interval
+	componentWillUnmount() {
 		clearInterval(this.intervalId);
 	}
 
 	fetchData = async () => {
-		this.setState({ loading: true, error: null })
+		this.setState({ loading: true, error: null });
 
 		try {
 			const data = await api.badges.list();
-			// console.table(data);
 			this.setState({ loading: false, data: data });
 		} catch (error) {
 			this.setState({ loading: false, error: error });
 		}
 	};
 
-	componentDidUpdate(prevProps, prevState) {
-
-	}
-
-	// componentWillUnmount() {
-	// 	clearTimeout(this.timeoutId)
-	// }
-
 	render() {
-		// show loading just when state.loading = true and there is not data
 		if (this.state.loading === true && !this.state.data) {
-			return <PageLoading />
+			return <PageLoading />;
 		}
 
 		if (this.state.error) {
-			return <PageError error={this.state.error} />
+			return <PageError error={this.state.error} />;
 		}
 
 		return (
@@ -72,22 +51,25 @@ class Badges extends React.Component {
 				<div className="Badges">
 					<div className="Badges__hero">
 						<div className="Badges__container">
-							<img className="Badges_conf-logo" src={confLogo} alt="" />
+							<img
+								className="Badges_conf-logo"
+								src={confLogo}
+								alt="Conf Logo"
+							/>
 						</div>
 					</div>
 				</div>
 
-				<div className="Badge__container">
+				<div className="Badges__container">
 					<div className="Badges__buttons">
-						<Link to="/badges/new" className="btn btn-primary">New Badge</Link>
+						<Link to="/badges/new" className="btn btn-primary">
+							New Badge
+            </Link>
 					</div>
 
-					<div className="Badges__list">
-						<div className="Badges__container">
-							<BadgesList badges={this.state.data} />
-							{this.state.loading && <MiniLoader />}
-						</div>
-					</div>
+					<BadgesList badges={this.state.data} />
+
+					{this.state.loading && <MiniLoader />}
 				</div>
 			</React.Fragment>
 		);
